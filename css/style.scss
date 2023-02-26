@@ -1,0 +1,749 @@
+$red: #E13434;
+$gray: #1F1F1F;
+$light-gray: #C4C4C4;
+$dark-gray: #e4e4e4;
+$white: #ffffff;
+$black: #000000;
+$blue-acl: #023670;
+$blue-light: #E9F3FF;
+$blue-deep: #012D5E;
+$blue-black: #011933;
+$orange: #FFA900;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,600;1,500&display=swap');
+
+// Dancing Script
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,600;1,500&display=swap') format('truetype');
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+body {
+    font-family: 'Montserrat';
+    background: $blue-light;
+}
+
+.btn-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 20px;
+
+    &:hover {
+        text-decoration: none;
+        box-shadow: -5px -5px 10px #FAFBFF, 5px 5px 10px #A6ABBD;
+    }
+
+    &.btn-custom__hotline {
+        width: 100%;
+        height: 44px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+        color: $white;
+        background-color: $red;
+        border-radius: 50px;
+        padding: 0px 20px;
+        & > img {
+            margin-right: 16px;
+        }
+    }
+
+    &.btn-custom__register {
+        width: 240px;
+        height: 65px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 18px;
+        color: $white;
+        background: #E89A01;
+        backdrop-filter: blur(15px);
+        border-radius: 58px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            width: 130px;
+            height: 44px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+            white-space: nowrap;
+        }
+    }
+
+    &.btn-submit {
+        width: 100%;
+        height: 50px;
+        background: #E89A01;
+        color: $white;
+        border-radius: 30px;
+        border: none;
+    }
+}
+
+.header-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('../img/images/Background-head.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding: 40px 0px;
+    margin-bottom: 80px;
+
+    .navbar-custom {
+        width: 100%;
+        border-radius: 100px;
+        padding: 16px 40px;
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            border-radius: 40px;
+        }
+
+        .navbar-custom__logo {
+            height: 50px;
+            object-fit: cover;
+
+            & > img {
+                height: 50px;
+            }
+        }
+
+        .navbar-custom__collapse {
+            flex-grow: 0;
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                margin-top: 20px;
+            }
+
+            & > ul li {
+                display: flex;
+                align-items: center;
+                padding: 0px 20px;
+
+                &.active {
+                    background: #004693;
+                    border-radius: 40px;
+
+                    & > a { color: $white; }
+                }
+            }
+        }
+    }
+
+    .header-wrap__content {
+        display: flex;
+        align-items: center;
+        padding: 120px 0px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            padding: 80px 0px;
+        }
+
+        .slogan-wrap {
+            color: $white;
+
+            h1 {
+                width: 100%;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 54px;
+                margin-bottom: 20px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 36px;
+                }
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 40px;
+                margin-bottom: 40px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 26px;
+                }
+            }
+        }
+
+        .header-img {
+            width: 100%;
+            height: 443px;
+            border-radius: 20px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) { 
+                height: auto;
+                margin-top: 20px;
+            }
+
+            & > img {
+                width: 100%;
+                height: 443px;
+                border-radius: 20px;
+                object-fit: cover;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {  
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+.about-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+
+    .about-background {
+        position: absolute;
+        right: 0px;
+        top: 0;
+        opacity: 0.1;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            display: none;
+        }
+    }
+
+    .about-wrap__title {
+        display: flex;
+        align-items: center;
+
+        & > h2 {
+            font-weight: 700;
+            font-size: 45px;
+            line-height: 66px;
+            letter-spacing: -0.015em;
+            color: $blue-deep;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                font-size: 28px;
+                line-height: 46px;  
+            }
+        }
+
+        & > img {
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                width: 126px;
+            }
+        }
+    }
+
+    .about-wrap__content {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.032em;
+        color: $blue-black;
+        margin-bottom: 40px;
+
+        ul li {
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .about-wrap__img-about {
+        width: 100%;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            margin-bottom: 40px;
+        }
+
+        & > img {
+            width: 100%;
+        }
+    }
+
+    .about-wrap__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        background: $white;
+        border: 1px solid $light-gray;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+
+        & > img {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .about-wrap__card--title {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 48px;
+            letter-spacing: -0.015em;
+            color: $blue-black;
+            margin-bottom: 20px;
+        }
+
+        & > p {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 150%;
+            letter-spacing: 0.032em;
+            color: $gray;
+        }
+    }
+}
+
+.learning-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('../img/images/background-learning.png');
+    background-size: contain;
+    background-position: top;
+    background-repeat: repeat-y;
+    padding: 80px 0px;
+
+    .learning-background {
+        position: absolute;
+        left: 0px;
+        bottom: 0;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            display: none;
+        }
+    }
+
+    .btn-learning__bottom {
+        margin-bottom: 80px;
+    }
+
+    .learning-wrap__title {
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 55px;
+        text-align: center;
+        color: $white;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+
+    .learning-path {
+        width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .learning-card {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background: $white;
+        border: 1px solid $light-gray;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 40px;
+
+        &:hover {
+            box-shadow: -10px -10px 20px #FAFBFF, 10px 10px 20px #A6ABBD;
+        }
+    
+
+        .learning-card__sympoint {
+            height: 60px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .learning-card__title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+            letter-spacing: -0.015em;
+            color: $blue-deep;
+            margin-bottom: 16px;
+        }
+
+        .learning-card__list-learn {
+            ul li {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 150%;
+                color: $gray;
+                margin-bottom: 10px;
+            }
+        }
+
+        .learning-card__content {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: $gray;
+        }
+
+        .learning-card__icon {
+            height: 50px;
+        }
+    }
+}
+
+.team-wrap {
+    position: relative;
+    margin-bottom: 80px;
+
+    .team-background-1 {
+        position: absolute;
+        left: 20px;
+        top: 0;
+        opacity: 0.1;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            display: none;
+        }
+    }
+
+    .team-background-2 {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        opacity: 0.1;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            display: none;
+        }
+    }
+
+    .team-background-3 {
+        position: absolute;
+        right: 20%;
+        top: 0;
+        transform: rotate(20deg);
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            display: none;
+        }
+    }
+
+    .team-wrap_title {
+        font-weight: 600;
+        font-size: 45px;
+        line-height: 59px;
+        text-align: center;
+        color: $blue-deep;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 34px;
+        }
+    }
+
+    .team-card {
+        display: flex;
+        align-items: center;
+
+        .team-card__content {
+            z-index: 2;
+
+            .team-card__content--wrap {
+                width: 100%;
+                height: auto;
+                background: $white;
+                border: 1px solid $light-gray;
+                border-radius: 20px;
+                padding: 40px 20px;
+                margin-left: 1vw;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    padding: 16px;
+                }
+            }
+
+            .team-card__content--title {
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 39px;
+                color: $blue-black;
+                margin-bottom: 4px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+            }
+
+            .team-card__content--subtitle {
+                font-weight: 400;
+                font-size: 17px;
+                line-height: 21px;
+                color: #343A40;
+                margin-bottom: 20px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 11px;
+                    margin-bottom: 8px;
+                }
+            }
+
+            .team-card__content--detail {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 26px;
+                color: $gray;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 14px;
+                }
+            }
+        }
+
+        .team-card__teacher {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            z-index: 1;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                height: 180px;
+            }
+
+            & > img {
+                height: 500px;
+                object-fit: cover;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    height: 180px;
+                }
+            }
+        }
+    }
+
+}
+
+.contact-wrap {
+    border-radius: 20px;
+    background: $white;
+    margin-bottom: 80px;
+
+    .contact-wrap__img {
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    .form-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) { 
+            padding: 30px 20px;
+        }
+
+        .form-wrap__title {
+            display: flex;
+            font-weight: 600;
+            font-size: 45px;
+            line-height: 51px;
+            color: $blue-deep;
+            margin-bottom: 40px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                width: 230px;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+            }
+
+            span {
+                color: #E13434;
+            }
+
+            & > img {
+                height: 150px;
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    height: 50px;
+                }
+            }
+        }
+
+        & > form {
+            width: 100%;
+
+            .form-group {
+                & > label {
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+                    color: #020202;
+                }
+
+                .form-control__custom {
+                    height: 50px;
+                    background: rgba(184, 184, 184, 0.25);
+                    border-radius: 40px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $blue-acl;
+    color: $white;
+    padding: 100px 0px;
+
+    .footer-wrap {
+        .footer-wrap__logo {
+            & > img {
+                height: 90px;
+                margin-bottom: 40px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    height: 60px;
+                }
+            }
+        }
+
+        .footer-wrap__about {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 36px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 26px;
+            }
+        }
+
+        .footer-wrap__title {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 20px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) { 
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 21px;
+            }
+        }
+
+        .footer-wrap__menu {
+            .footer-wrap__menu--item {
+                padding-bottom: 20px;
+
+                a {
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 24px;
+                    color: $white;
+                    text-decoration: none;
+
+                    @media screen and (min-width: 321px) and (max-width: 768px) { 
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 21px;
+                    }
+    
+                    &:hover {
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .footer-wrap__contact {
+            .contact__info {
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 32px;
+                margin-bottom: 20px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) { 
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+
+            .contact__items {
+                font-size: 20px;
+                line-height: 30px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) { 
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+
+                .contact__items--title {
+                    font-weight: 700;
+                    margin-bottom: 4px;
+                }
+
+                .contact__items--content {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+.copy-wrap {
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 158.5%;
+    color: $white;
+    background: $blue-deep;
+    text-align: center;
+    padding: 10px 0px;
+}
