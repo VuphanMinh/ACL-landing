@@ -3,7 +3,9 @@ $gray: #1F1F1F;
 $light-gray: #C4C4C4;
 $dark-gray: #e4e4e4;
 $white: #ffffff;
+$white-gray: #F9FCFF;
 $black: #000000;
+$blue: #004693;
 $blue-acl: #023670;
 $blue-light: #E9F3FF;
 $blue-deep: #012D5E;
@@ -46,11 +48,16 @@ $orange: #FFA900;
     margin-top: 40px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat Alternates', sans-serif;
     background: $blue-light;
 }
 
+// =============== button ===============
 .btn-custom {
     display: flex;
     justify-content: center;
@@ -61,6 +68,7 @@ body {
     &:hover {
         text-decoration: none;
         box-shadow: -5px -5px 10px #FAFBFF, 5px 5px 10px #A6ABBD;
+        transition: all 0.5s ease;
     }
 
     &.btn-custom__hotline {
@@ -109,6 +117,63 @@ body {
     }
 }
 
+#button-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF9800;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+
+    & > img {
+        width: 26px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        background-color: #333;
+        transition: all 0.5s ease;
+    }
+
+    &:active {
+        background-color: #555;
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+  }
+
+.slider__button,
+.swiper-button-next, .swiper-button-prev {
+    width: 60px !important;
+    height: 60px !important;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+
+    &::after {
+         color: $white;
+         font-size: 24px !important;
+    }
+
+    &:hover {
+        background: $blue-deep;
+        transition: all 0.5s ease;
+    }
+}
+
+// =============== header ===============
+
 .header-wrap {
     width: 100%;
     height: 100%;
@@ -129,14 +194,24 @@ body {
 
         @media screen and (min-width: 321px) and (max-width: 768px) {
             border-radius: 40px;
+            padding: 8px 40px;
         }
 
         .navbar-custom__logo {
             height: 50px;
             object-fit: cover;
 
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                height: 40px;
+            }
+
             & > img {
                 height: 50px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {
+                    height: 40px;
+                }
+    
             }
         }
 
@@ -151,8 +226,24 @@ body {
                 align-items: center;
                 padding: 0px 20px;
 
+                &.hotline {
+                    background: none;
+
+                    &:hover {
+                        background: none;
+                    }
+                }
+
+                &:hover {
+                    background: $blue;
+                    border-radius: 40px;
+                    transition: all 0.5s ease;
+
+                    & > a { color: $white; }
+                }
+
                 &.active {
-                    background: #004693;
+                    background: $blue;
                     border-radius: 40px;
 
                     & > a { color: $white; }
@@ -176,8 +267,8 @@ body {
             h1 {
                 width: 100%;
                 font-weight: 700;
-                font-size: 40px;
-                line-height: 54px;
+                font-size: 36px;
+                line-height: 46px;
                 margin-bottom: 20px;
 
                 @media screen and (min-width: 321px) and (max-width: 768px) {
@@ -188,7 +279,7 @@ body {
             }
 
             p {
-                font-weight: 500;
+                font-weight: 400;
                 font-size: 24px;
                 line-height: 40px;
                 margin-bottom: 40px;
@@ -197,6 +288,7 @@ body {
                     font-weight: 500;
                     font-size: 16px;
                     line-height: 26px;
+                    letter-spacing: 1px;
                 }
             }
         }
@@ -225,6 +317,8 @@ body {
     }
 }
 
+// =============== about ===============
+
 .about-wrap {
     position: relative;
     display: flex;
@@ -234,7 +328,7 @@ body {
     .about-background {
         position: absolute;
         right: 0px;
-        top: 0;
+        top: -130px;
         opacity: 0.1;
 
         @media screen and (min-width: 321px) and (max-width: 768px) {  
@@ -245,17 +339,17 @@ body {
     .about-wrap__title {
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
 
         & > h2 {
             font-weight: 700;
-            font-size: 45px;
-            line-height: 66px;
-            letter-spacing: -0.015em;
+            font-size: 36px;
+            line-height: 46px;
             color: $blue-deep;
 
             @media screen and (min-width: 321px) and (max-width: 768px) {  
-                font-size: 28px;
-                line-height: 46px;  
+                font-size: 24px;
+                line-height: 34px;  
             }
         }
 
@@ -268,11 +362,15 @@ body {
 
     .about-wrap__content {
         font-weight: 400;
-        font-size: 18px;
-        line-height: 28px;
+        font-size: 16px;
+        line-height: 22px;
         letter-spacing: 0.032em;
         color: $blue-black;
-        margin-bottom: 40px;
+        margin-bottom: 80px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            margin-bottom: 40px;
+        }
 
         ul li {
             span {
@@ -285,7 +383,7 @@ body {
         width: 100%;
 
         @media screen and (min-width: 321px) and (max-width: 768px) {  
-            margin-bottom: 40px;
+            margin-bottom: 80px;
         }
 
         & > img {
@@ -294,39 +392,89 @@ body {
     }
 
     .about-wrap__card {
+        position:relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
         width: 100%;
-        background: $white;
-        border: 1px solid $light-gray;
-        border-radius: 20px;
-        padding: 40px;
+        height: 280px;
+        padding: 20px;
         margin-bottom: 40px;
 
-        & > img {
-            height: 100px;
-            margin-bottom: 20px;
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            height: auto;
+            margin-bottom: 80px;
+        }
+
+        &.active {
+            background: #F9FCFF;
+            border: 1px solid $light-gray;
+            border-radius: 20px;
+            box-shadow: -10px -10px 20px #FAFBFF, 10px 10px 20px #A6ABBD;
+            transition: all 0.5s ease;
+        }
+
+        .about-wrap__card__icon {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            margin-bottom: 10px;
+            margin-top: -4vw;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                position: relative;
+                transform: inherit;
+                left: 0;
+                margin-top: -14vw;
+            }
+
+            & > img {
+                width: 100px;
+                object-fit: cover;
+            }
         }
 
         .about-wrap__card--title {
+            width: 100%;
+            text-align: center;
             font-weight: 700;
-            font-size: 30px;
-            line-height: 48px;
+            font-size: 18px;
+            line-height: 26px;
             letter-spacing: -0.015em;
             color: $blue-black;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 38px;
+            }
         }
 
         & > p {
+            text-align: center;
             font-weight: 400;
-            font-size: 20px;
+            font-size: 18px;
             line-height: 150%;
             letter-spacing: 0.032em;
             color: $gray;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 150%;
+            }
         }
     }
 }
+
+// =============== learning ===============
 
 .learning-wrap {
     width: 100%;
@@ -337,6 +485,10 @@ body {
     background-position: top;
     background-repeat: repeat-y;
     padding: 80px 0px;
+
+    @media screen and (min-width: 321px) and (max-width: 768px) {  
+        padding: 40px 0px;
+    }
 
     .learning-background {
         position: absolute;
@@ -354,23 +506,34 @@ body {
 
     .learning-wrap__title {
         font-weight: 600;
-        font-size: 45px;
-        line-height: 55px;
+        font-size: 36px;
+        line-height: 46px;
         text-align: center;
         color: $white;
+        text-transform: capitalize;
         margin: auto;
         margin-bottom: 40px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 34px;
+        }
     }
 
     .learning-path {
         width: 100%;
         margin-bottom: 80px;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            margin-bottom: 40px;
+        }
     }
 
     .learning-card {
         position: relative;
         width: 100%;
-        height: 500px;
+        height: 450px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -380,8 +543,15 @@ body {
         padding: 40px;
         margin-bottom: 40px;
 
+        @media screen and (min-width: 321px) and (max-width: 768px) {  
+            height: auto;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
         &:hover {
             box-shadow: -10px -10px 20px #FAFBFF, 10px 10px 20px #A6ABBD;
+            transition: all 0.5s ease;
         }
     
 
@@ -399,15 +569,28 @@ body {
             letter-spacing: -0.015em;
             color: $blue-deep;
             margin-bottom: 16px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {  
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 24px;
+            }
         }
 
         .learning-card__list-learn {
             ul li {
                 font-weight: 500;
-                font-size: 18px;
+                font-size: 16px;
                 line-height: 150%;
                 color: $gray;
+                white-space: nowrap;
                 margin-bottom: 10px;
+
+                @media screen and (min-width: 321px) and (max-width: 768px) {  
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 150%;
+                }
             }
         }
 
@@ -423,6 +606,8 @@ body {
         }
     }
 }
+
+// =============== team ===============
 
 .team-wrap {
     position: relative;
@@ -463,8 +648,8 @@ body {
 
     .team-wrap_title {
         font-weight: 600;
-        font-size: 45px;
-        line-height: 59px;
+        font-size: 36px;
+        line-height: 46px;
         text-align: center;
         color: $blue-deep;
         margin: auto;
@@ -473,7 +658,7 @@ body {
 
         @media screen and (min-width: 321px) and (max-width: 768px) {
             font-weight: 600;
-            font-size: 28px;
+            font-size: 24px;
             line-height: 34px;
         }
     }
@@ -501,8 +686,8 @@ body {
 
             .team-card__content--title {
                 font-weight: 600;
-                font-size: 32px;
-                line-height: 39px;
+                font-size: 26px;
+                line-height: 30px;
                 color: $blue-black;
                 margin-bottom: 4px;
 
@@ -565,12 +750,40 @@ body {
 
 }
 
+// =============== contact ===============
+
 .contact-wrap {
     border-radius: 20px;
     background: $white;
     margin-bottom: 80px;
 
+    .flex-size__form {
+        display: flex;
+        align-items: center;
+
+        @media screen and (min-width: 321px) and (max-width: 768px) {
+            display: block;
+        }
+    }
+
     .contact-wrap__img {
+        width: 100%;
+
+        & > img {
+            height: 660px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            object-fit: cover;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) {
+                width: 100%;
+                height: auto;
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+        }
+
         @media screen and (min-width: 321px) and (max-width: 768px) {
             width: 100%;
         }
@@ -597,8 +810,8 @@ body {
             @media screen and (min-width: 321px) and (max-width: 768px) {
                 width: 230px;
                 font-weight: 700;
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 24px;
+                line-height: 34px;
             }
 
             span {
@@ -622,22 +835,35 @@ body {
                     font-size: 20px;
                     line-height: 24px;
                     color: #020202;
+
+                    @media screen and (min-width: 321px) and (max-width: 768px) {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
                 }
 
                 .form-control__custom {
                     height: 50px;
                     background: rgba(184, 184, 184, 0.25);
                     border-radius: 40px;
+                    border: none;
+
+                    @media screen and (min-width: 321px) and (max-width: 768px) {
+                        width: 100%;
+                        height: 50px;
+                    }
                 }
             }
         }
     }
 }
 
+// =============== footer ===============
+
 footer {
     background-color: $blue-acl;
     color: $white;
-    padding: 100px 0px;
+    padding: 60px 0px;
 
     .footer-wrap {
         .footer-wrap__logo {
@@ -652,11 +878,13 @@ footer {
         }
 
         .footer-wrap__about {
-            font-weight: 500;
+            width: 310px;
+            font-weight: 400;
             font-size: 22px;
             line-height: 36px;
 
             @media screen and (min-width: 321px) and (max-width: 768px) {
+                width: 100%;
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 26px;
@@ -677,19 +905,24 @@ footer {
         }
 
         .footer-wrap__menu {
+            padding-left: 80px;
+
+            @media screen and (min-width: 321px) and (max-width: 768px) { 
+                padding-left: 0px;
+            }
+
             .footer-wrap__menu--item {
                 padding-bottom: 20px;
 
                 a {
                     font-weight: 500;
-                    font-size: 20px;
-                    line-height: 24px;
+                    font-size: 18px;
+                    line-height: 22px;
                     color: $white;
                     text-decoration: none;
 
                     @media screen and (min-width: 321px) and (max-width: 768px) { 
                         font-weight: 400;
-                        font-size: 20px;
                         line-height: 21px;
                     }
     
@@ -703,29 +936,29 @@ footer {
 
         .footer-wrap__contact {
             .contact__info {
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 32px;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 26px;
                 margin-bottom: 20px;
 
                 @media screen and (min-width: 321px) and (max-width: 768px) { 
-                    font-weight: 700;
-                    font-size: 20px;
+                    font-weight: 600;
+                    font-size: 18px;
                     line-height: 24px;
                 }
             }
 
             .contact__items {
-                font-size: 20px;
-                line-height: 30px;
+                font-size: 16px;
+                line-height: 26px;
 
                 @media screen and (min-width: 321px) and (max-width: 768px) { 
-                    font-size: 20px;
+                    font-size: 18px;
                     line-height: 28px;
                 }
 
                 .contact__items--title {
-                    font-weight: 700;
+                    font-weight: 600;
                     margin-bottom: 4px;
                 }
 
@@ -737,6 +970,8 @@ footer {
     }
 }
 
+// =============== copy-right ===============
+
 .copy-wrap {
     width: 100%;
     font-weight: 500;
@@ -746,4 +981,11 @@ footer {
     background: $blue-deep;
     text-align: center;
     padding: 10px 0px;
+
+    @media screen and (min-width: 321px) and (max-width: 768px) { 
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+    }
 }
+
