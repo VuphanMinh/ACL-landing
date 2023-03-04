@@ -20,6 +20,21 @@ $orange: #FFA900;
     src: url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,500;0,600;1,500&display=swap') format('truetype');
 }
 
+// ============== Settings responsive ===============
+$breakpoints: (
+  'pc': 'screen and (min-width: 769px)',
+  'sp': 'screen and (min-width: 321px) and (max-width: 768px)',
+  'mini-tablet': 'screen and (min-width: 768px) and (max-width: 1024px)',
+  'tablet': 'screen and (min-width: 1025px) and (max-width: 1280px)'
+
+) !default;
+
+@mixin res_for($breakpoint: pc) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 .m-auto {
     margin: auto;
 }
@@ -97,7 +112,7 @@ body {
         backdrop-filter: blur(15px);
         border-radius: 58px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             width: 130px;
             height: 44px;
             font-weight: 600;
@@ -192,7 +207,7 @@ body {
         display: flex;
         justify-content: space-between;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             border-radius: 40px;
             padding: 8px 40px;
         }
@@ -201,14 +216,14 @@ body {
             height: 50px;
             object-fit: cover;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
                 height: 40px;
             }
 
             & > img {
                 height: 50px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
                     height: 40px;
                 }
     
@@ -217,7 +232,7 @@ body {
 
         .navbar-custom__collapse {
             flex-grow: 0;
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
                 margin-top: 20px;
             }
 
@@ -257,7 +272,7 @@ body {
         align-items: center;
         padding: 120px 0px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             padding: 80px 0px;
         }
 
@@ -271,7 +286,7 @@ body {
                 line-height: 46px;
                 margin-bottom: 20px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
                     font-weight: 700;
                     font-size: 24px;
                     line-height: 36px;
@@ -284,7 +299,7 @@ body {
                 line-height: 40px;
                 margin-bottom: 40px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
                     font-weight: 500;
                     font-size: 16px;
                     line-height: 26px;
@@ -298,7 +313,7 @@ body {
             height: 443px;
             border-radius: 20px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) { 
+            @include res_for(sp) { 
                 height: auto;
                 margin-top: 20px;
             }
@@ -309,7 +324,7 @@ body {
                 border-radius: 20px;
                 object-fit: cover;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {  
+                @include res_for(sp) {  
                     height: auto;
                 }
             }
@@ -331,7 +346,7 @@ body {
         top: -130px;
         opacity: 0.1;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             display: none;
         }
     }
@@ -347,14 +362,24 @@ body {
             line-height: 46px;
             color: $blue-deep;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
+                font-size: 24px;
+                line-height: 34px;  
+            }
+
+            @include res_for(mini-tablet) {  
+                font-size: 24px;
+                line-height: 34px;  
+            }
+
+            @include res_for(tablet) {  
                 font-size: 24px;
                 line-height: 34px;  
             }
         }
 
         & > img {
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
                 width: 126px;
             }
         }
@@ -368,8 +393,20 @@ body {
         color: $blue-black;
         margin-bottom: 80px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             margin-bottom: 40px;
+        }
+
+        @include res_for(mini-tablet) {  
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 120px;
+        }
+
+        @include res_for(tablet) {  
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 120px;
         }
 
         ul li {
@@ -382,7 +419,7 @@ body {
     .about-wrap__img-about {
         width: 100%;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             margin-bottom: 80px;
         }
 
@@ -402,9 +439,19 @@ body {
         padding: 20px;
         margin-bottom: 40px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             height: auto;
             margin-bottom: 80px;
+        }
+
+        @include res_for(mini-tablet) {  
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        @include res_for(tablet) {  
+            height: auto;
+            margin-bottom: 20px;
         }
 
         &.active {
@@ -427,7 +474,21 @@ body {
             margin-bottom: 10px;
             margin-top: -4vw;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
+                position: relative;
+                transform: inherit;
+                left: 0;
+                margin-top: -14vw;
+            }
+
+            @include res_for(mini-tablet) {  
+                position: relative;
+                transform: inherit;
+                left: 0;
+                margin-top: -14vw;
+            }
+
+            @include res_for(tablet) {  
                 position: relative;
                 transform: inherit;
                 left: 0;
@@ -450,10 +511,22 @@ body {
             color: $blue-black;
             margin-bottom: 10px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
                 font-weight: 700;
                 font-size: 24px;
                 line-height: 38px;
+            }
+
+            @include res_for(mini-tablet) {  
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 28px;
+            }
+
+            @include res_for(tablet) {  
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 28px;
             }
         }
 
@@ -465,7 +538,19 @@ body {
             letter-spacing: 0.032em;
             color: $gray;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 150%;
+            }
+
+            @include res_for(mini-tablet) {  
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 150%;
+            }
+
+            @include res_for(tablet) {  
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 150%;
@@ -486,7 +571,7 @@ body {
     background-repeat: repeat-y;
     padding: 80px 0px;
 
-    @media screen and (min-width: 321px) and (max-width: 768px) {  
+    @include res_for(sp) {  
         padding: 40px 0px;
     }
 
@@ -495,7 +580,7 @@ body {
         left: 0px;
         bottom: 0;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             display: none;
         }
     }
@@ -514,7 +599,7 @@ body {
         margin: auto;
         margin-bottom: 40px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             font-weight: 600;
             font-size: 24px;
             line-height: 34px;
@@ -525,7 +610,7 @@ body {
         width: 100%;
         margin-bottom: 80px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             margin-bottom: 40px;
         }
     }
@@ -543,9 +628,21 @@ body {
         padding: 40px;
         margin-bottom: 40px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             height: auto;
             padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        @include res_for(mini-tablet) {  
+            height: auto;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        @include res_for(tablet) {  
+            height: auto;
+            padding: 20px;
             margin-bottom: 20px;
         }
 
@@ -560,6 +657,16 @@ body {
             position: absolute;
             top: 20px;
             right: 20px;
+
+            @include res_for(mini-tablet) {  
+                height: 40px;
+                right: 10px;
+            }
+    
+            @include res_for(tablet) {  
+                height: 40px;
+                right: 10px;
+            }
         }
 
         .learning-card__title {
@@ -570,10 +677,22 @@ body {
             color: $blue-deep;
             margin-bottom: 16px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {  
+            @include res_for(sp) {  
                 font-weight: 700;
                 font-size: 20px;
                 line-height: 24px;
+            }
+
+            @include res_for(mini-tablet) {  
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+            }
+
+            @include res_for(tablet) {  
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
             }
         }
 
@@ -586,7 +705,21 @@ body {
                 white-space: nowrap;
                 margin-bottom: 10px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {  
+                @include res_for(sp) {  
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 150%;
+                }
+
+                @include res_for(mini-tablet) {  
+                    white-space: break-spaces;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 150%;
+                }
+
+                @include res_for(tablet) {  
+                    white-space: break-spaces;
                     font-weight: 500;
                     font-size: 14px;
                     line-height: 150%;
@@ -599,6 +732,18 @@ body {
             font-size: 16px;
             line-height: 150%;
             color: $gray;
+
+            @include res_for(mini-tablet) {  
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 150%;
+            }
+
+            @include res_for(tablet) {  
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 150%;
+            }
         }
 
         .learning-card__icon {
@@ -619,7 +764,7 @@ body {
         top: 0;
         opacity: 0.1;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             display: none;
         }
     }
@@ -630,7 +775,7 @@ body {
         top: 50%;
         opacity: 0.1;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             display: none;
         }
     }
@@ -641,7 +786,7 @@ body {
         top: 0;
         transform: rotate(20deg);
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {  
+        @include res_for(sp) {  
             display: none;
         }
     }
@@ -656,7 +801,7 @@ body {
         margin-top: 40px;
         margin-bottom: 40px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             font-weight: 600;
             font-size: 24px;
             line-height: 34px;
@@ -679,7 +824,17 @@ body {
                 padding: 40px 20px;
                 margin-left: 1vw;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
+                    padding: 16px;
+                }
+
+
+                @include res_for(mini-tablet) {
+                    padding: 16px;
+                }
+
+
+                @include res_for(tablet) {
                     padding: 16px;
                 }
             }
@@ -691,7 +846,20 @@ body {
                 color: $blue-black;
                 margin-bottom: 4px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+
+                @include res_for(mini-tablet) {
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+
+
+                @include res_for(tablet) {
                     font-weight: 600;
                     font-size: 12px;
                     line-height: 15px;
@@ -705,7 +873,21 @@ body {
                 color: #343A40;
                 margin-bottom: 20px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 11px;
+                    margin-bottom: 8px;
+                }
+
+                @include res_for(mini-tablet) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 11px;
+                    margin-bottom: 8px;
+                }
+
+                @include res_for(tablet) {
                     font-weight: 400;
                     font-size: 9px;
                     line-height: 11px;
@@ -719,7 +901,19 @@ body {
                 line-height: 26px;
                 color: $gray;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 14px;
+                }
+
+                @include res_for(mini-tablet) {
+                    font-weight: 400;
+                    font-size: 9px;
+                    line-height: 14px;
+                }
+
+                @include res_for(tablet) {
                     font-weight: 400;
                     font-size: 9px;
                     line-height: 14px;
@@ -733,7 +927,15 @@ body {
             border-radius: 20px;
             z-index: 1;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
+                height: 180px;
+            }
+
+            @include res_for(mini-tablet) {
+                height: 180px;
+            }
+
+            @include res_for(tablet) {
                 height: 180px;
             }
 
@@ -741,7 +943,15 @@ body {
                 height: 500px;
                 object-fit: cover;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
+                    height: 180px;
+                }
+
+                @include res_for(mini-tablet) {
+                    height: 180px;
+                }
+    
+                @include res_for(tablet) {
                     height: 180px;
                 }
             }
@@ -761,7 +971,7 @@ body {
         display: flex;
         align-items: center;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             display: block;
         }
     }
@@ -775,16 +985,24 @@ body {
             border-bottom-right-radius: 20px;
             object-fit: cover;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
                 width: 100%;
                 height: auto;
                 border-top-right-radius: 0px;
                 border-bottom-right-radius: 20px;
                 border-bottom-left-radius: 20px;
             }
+
+            @include res_for(mini-tablet) {
+                width: 100%;
+            }
+
+            @include res_for(tablet) {
+                width: 100%;
+            }
         }
 
-        @media screen and (min-width: 321px) and (max-width: 768px) {
+        @include res_for(sp) {
             width: 100%;
         }
     }
@@ -795,7 +1013,18 @@ body {
         align-items: center;
         padding: 60px;
 
-        @media screen and (min-width: 321px) and (max-width: 768px) { 
+        @include res_for(sp) { 
+            width: 100%;
+            padding: 30px 20px;
+        }
+
+        @include res_for(tablet) { 
+            width: 100%;
+            padding: 30px 20px;
+        }
+
+        @include res_for(mini-tablet) { 
+            width: 100%;
             padding: 30px 20px;
         }
 
@@ -807,11 +1036,28 @@ body {
             color: $blue-deep;
             margin-bottom: 40px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
                 width: 230px;
                 font-weight: 700;
                 font-size: 24px;
                 line-height: 34px;
+                margin-bottom: 20px;
+            }
+
+            @include res_for(tablet) {
+                width: 230px;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 20px;
+            }
+
+            @include res_for(mini-tablet) {
+                width: 230px;
+                font-weight: 700;
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 20px;
             }
 
             span {
@@ -820,8 +1066,16 @@ body {
 
             & > img {
                 height: 150px;
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
                     height: 50px;
+                }
+
+                @include res_for(mini-tablet) {
+                    height: 80px;
+                }
+
+                @include res_for(tablet) {
+                    height: 80px;
                 }
             }
         }
@@ -836,8 +1090,18 @@ body {
                     line-height: 24px;
                     color: #020202;
 
-                    @media screen and (min-width: 321px) and (max-width: 768px) {
+                    @include res_for(sp) {
                         font-size: 18px;
+                        line-height: 22px;
+                    }
+
+                    @include res_for(mini-tablet) {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+
+                    @include res_for(tablet) {
+                        font-size: 14px;
                         line-height: 22px;
                     }
                 }
@@ -848,7 +1112,17 @@ body {
                     border-radius: 40px;
                     border: none;
 
-                    @media screen and (min-width: 321px) and (max-width: 768px) {
+                    @include res_for(sp) {
+                        width: 100%;
+                        height: 50px;
+                    }
+
+                    @include res_for(tablet) {
+                        width: 100%;
+                        height: 50px;
+                    }
+
+                    @include res_for(mini-tablet) {
                         width: 100%;
                         height: 50px;
                     }
@@ -871,7 +1145,7 @@ footer {
                 height: 90px;
                 margin-bottom: 40px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) {
+                @include res_for(sp) {
                     height: 60px;
                 }
             }
@@ -883,7 +1157,7 @@ footer {
             font-size: 22px;
             line-height: 36px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) {
+            @include res_for(sp) {
                 width: 100%;
                 font-weight: 400;
                 font-size: 18px;
@@ -897,7 +1171,7 @@ footer {
             line-height: 29px;
             margin-bottom: 20px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) { 
+            @include res_for(sp) { 
                 font-weight: 700;
                 font-size: 20px;
                 line-height: 21px;
@@ -907,7 +1181,7 @@ footer {
         .footer-wrap__menu {
             padding-left: 80px;
 
-            @media screen and (min-width: 321px) and (max-width: 768px) { 
+            @include res_for(sp) { 
                 padding-left: 0px;
             }
 
@@ -921,7 +1195,7 @@ footer {
                     color: $white;
                     text-decoration: none;
 
-                    @media screen and (min-width: 321px) and (max-width: 768px) { 
+                    @include res_for(sp) { 
                         font-weight: 400;
                         line-height: 21px;
                     }
@@ -941,7 +1215,7 @@ footer {
                 line-height: 26px;
                 margin-bottom: 20px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) { 
+                @include res_for(sp) { 
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 24px;
@@ -952,7 +1226,7 @@ footer {
                 font-size: 16px;
                 line-height: 26px;
 
-                @media screen and (min-width: 321px) and (max-width: 768px) { 
+                @include res_for(sp) { 
                     font-size: 18px;
                     line-height: 28px;
                 }
@@ -982,7 +1256,7 @@ footer {
     text-align: center;
     padding: 10px 0px;
 
-    @media screen and (min-width: 321px) and (max-width: 768px) { 
+    @include res_for(sp) { 
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
