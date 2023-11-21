@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse navbar-custom__collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link" href="#gioi-thieu">Giới Thiệu</a>
+                      <a class="nav-link" href="#gioi-thieu">Giới Thiệu về chúng tôi</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="#khoa-hoc">Khoá Học</a>
@@ -440,7 +440,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> 
 
     <!-- lien-he -->
     <section id="lien-he">
@@ -475,6 +475,47 @@
               <div class="contact-wrap__img">
                 <img src="./img/images/acl-form.png" alt="acl-form" />
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="doi-tac">
+      <div class="container">
+        <div class="row">
+          <h2 class="partner_title">Đối Tác</h2>
+          <div class="col-md-12">
+            <!-- Swiper Đối tác -->
+            <div class="swiper PartnerSwiper">
+              <div class="swiper-wrapper swiper-wrapper--bottom">
+                <div class="swiper-slide">
+                  <div class="partner__img">
+                    <img src="./img/partner/2EC-Council-logo.png" alt="acl-partner" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="partner__img">
+                    <img src="./img/partner/98149-middle.png" alt="acl-partner" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="partner__img">
+                    <img src="./img/partner/castle.png" alt="acl-partner" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="partner__img">
+                    <img src="./img/partner/Kryterion-Testing-Center.jpeg" alt="acl-partner" />
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="partner__img">
+                    <img src="./img/partner/PSI-logo-high-re-image.png" alt="acl-partner" />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>
@@ -574,6 +615,20 @@
           prevEl: ".swiper-button-prev",
         },
       });
+
+      var swiper = new Swiper(".PartnerSwiper", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+    });
 
     // <!-- Initialize Button to top website -->
       var btn = $('#button-top');
